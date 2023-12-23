@@ -87,6 +87,9 @@ class OpenSmplPklOperator(bpy.types.Operator, ImportHelper):
         obj = bpy.data.objects[object_name]
         obj.select_set(True)
 
+        # Move the object up by 1.1 meters
+        obj.location.z += 1.1
+
         # Write animation
         rotation_euler_xyz, translation_front_up_right = GetAnimation(smpl_params)
         for b in obj.pose.bones:
@@ -126,7 +129,7 @@ class OpenSmplPklOperator(bpy.types.Operator, ImportHelper):
         obj.animation_data.action.frame_start = 1
         obj.animation_data.action.frame_end = bone_data.shape[0]
 
-        bpy.context.scene.render.fps = 60
+        bpy.context.scene.render.fps = 30
 
         return {'FINISHED'}
 
