@@ -88,7 +88,7 @@ class OpenSmplPklOperator(bpy.types.Operator, ImportHelper):
         obj.select_set(True)
 
         # Move the object up by 1.1 meters
-        obj.location.z += 1.1
+        #obj.location.z += 1.1
 
         # Write animation
         rotation_euler_xyz, translation_front_up_right = GetAnimation(smpl_params)
